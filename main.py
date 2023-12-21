@@ -15,13 +15,6 @@ st.set_page_config(page_title="Logistikkostenprognose", page_icon="🚀", layout
 
 from db import aktuellData, up_table
 import pandas as pd
-import numpy as np
-import plotly.graph_objects as go
-import plotly.express as px
-from datetime import datetime
-from schaetzung import regression
-from matplotlib.colors import to_rgba
-import matplotlib.pyplot as plt
 
 
 
