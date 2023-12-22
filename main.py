@@ -45,12 +45,16 @@ st.markdown("""
 
 
 
+#body
+custom_style = '<style>.block-container { padding: 1rem 1rem 1rem 1rem; }</style>'
+st.markdown(custom_style, unsafe_allow_html=True)
+
 
 
 
 #settings 
 #col1, col2,col3,col4,col5 = st.columns(5) 
-col1, col2, col3= st.columns((1,8,1),gap="small") 
+col1, col2, col3= st.columns((2,10,2),gap="small") 
 
 
 with col1:
@@ -122,4 +126,3 @@ with col2:
     st.write("")
     st.write("")
     st.image("./logo/containers.png", use_column_width='auto',)
-
