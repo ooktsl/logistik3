@@ -15,26 +15,54 @@ st.set_page_config(page_title="Logistikkostenprognose", page_icon="🚀", layout
 
 from db import aktuellData, up_table
 import pandas as pd
+from streamlit_elements import elements, mui, dashboard
+
+               
+               
+#footer
+st.markdown(
+    '<div style="position: fixed; bottom: 10px; right: 10px; padding: 10px; padding-right:40px">'
+    'Logistikkostenprognose, v1.1-3, 2023-12-20'
+    '</div>',
+    unsafe_allow_html=True
+)
+st.markdown("""
+    <style>
+        img.right {
+            float: right;
+            margin: 0 0 0 0;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+    <style>
+        .sidebar-content {
+            max-width: 300px; 
+        }
+    </style>
+""", unsafe_allow_html=True)
 
 
 
-
-
-st.markdown("<h1 style='text-align: center;'>Logistikkostenprognose</h1>", unsafe_allow_html=True)
 
 
 
 #settings 
 #col1, col2,col3,col4,col5 = st.columns(5) 
-col1, col2, col3, col4= st.columns((1,9,4,1),gap="small") 
+col1, col2, col3= st.columns((1,8,1),gap="small") 
 
 
 with col1:
     st.image("./logo/i-wunder2.png", use_column_width='auto' )
-with col4:
-    st.image("./logo/fabianRogalla.png", use_column_width='auto')
+with col2:
+    st.markdown("<h1 style='text-align: center;'>Logistikkostenprognose</h1>", unsafe_allow_html=True)
+with col3:
+    st.image("./logo/fabianRogalla.png",use_column_width='auto')
 
 
+# <div class="block-container st-emotion-cache-z5fcl4 ea3mdgi2" data-testid="block-container" ></div>
+    
 
 
 #load data
@@ -83,32 +111,15 @@ def highlight_2024(s):
     
 styled_df = df.iloc[:, 0:10].style.apply(highlight_2024, axis=1).format("{:,.0f} €", thousands=".").set_table_styles(styles)
 
-with col2:
-    st.write("")
-    st.write("")
-    st.write("")
-    st.write("")
+col1, col2= st.columns((8,4),gap="small") 
+
+with col1:
     st.write("Prognose") 
     st.dataframe(styled_df)
 
 
-with col3:
+with col2:
     st.write("")
     st.write("")
-    st.write("")
-    st.write("")
-    st.write("")
-    st.write("")
-    st.image("./logo/containers.png", use_column_width='auto')
-
-
-st.markdown(
-    '<div style="position: fixed; bottom: 10px; right: 10px; padding: 10px;">'
-    'Logistikkostenprognose, v1.1-7, 2023-12-20'
-    '</div>',
-    unsafe_allow_html=True
-)
-
-
-
+    st.image("./logo/containers.png", use_column_width='auto',)
 
